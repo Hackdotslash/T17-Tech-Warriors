@@ -208,10 +208,12 @@ const togglehandler = () => {
     $('#pills-bookmark-tab').removeClass('active');
     $('#pills-review-tab').removeClass('active');
     $('#pills-rating-tab').removeClass('active');
+    $('#pills-report-tab').removeClass('active');
     $('#pills-home').removeClass('show active');
     $('#pills-bookmark').removeClass('show active');
     $('#pills-review').removeClass('show active');
     $('#pills-rating').removeClass('show active');
+    $('#pills-report').removeClass('show active');
 }
 
 document.getElementById('pills-home-tab').addEventListener('click', () => {
@@ -238,4 +240,11 @@ document.getElementById('pills-rating-tab').addEventListener('click', () => {
     togglehandler();
     $('#pills-rating-tab').addClass('active');
     $('#pills-rating').addClass('show active');
+});
+
+document.getElementById('pills-report-tab').addEventListener('click', () => {
+    $('#myTab a[href = "#pills-report"]').tab('show');
+    togglehandler();
+    $('#pills-report-tab').addClass('active');
+    $('#pills-report').addClass('show active');
 });
