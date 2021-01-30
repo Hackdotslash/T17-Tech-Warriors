@@ -1,11 +1,20 @@
 document.getElementById('whatsapp').addEventListener('click', (e) => {
     chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT },
         function (tabs) {
-            console.log(tabs[0].url)
+            // console.log(tabs[0].url)
             if (tabs[0].url === "https://web.whatsapp.com/") {
-                chrome.tabs.executeScript({
-                    file: './scripts/whatsapp.js'
-                });
+                let sk = document.getElementById('key').value;
+                // console.log(sk)
+                // localStorage.setItem("key", sk);
+                // console.log(localStorage.getItem('key'))
+                chrome.tabs.getSelected(null, function (tab) {
+                    // alert(document.activeElement.tabIndex);
+                    chrome.tabs.executeScript(tab.id, {
+                        code: 'var keyy ="' + sk+'"'
+                    }, function () {
+                        chrome.tabs.executeScript(tab.id, { file: './scripts/whatsapp.js' });
+                    });
+                })
             }
         }
     );
