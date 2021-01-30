@@ -11,19 +11,7 @@ document.getElementById('whatsapp').addEventListener('click', (e) => {
     );
 })
 
-document.getElementById('report').addEventListener('click', (e) => {
-    let Http = new XMLHttpRequest();
-    const url = 'http://localhost:9000/sms'
-    console.log(url)
-    Http.open("GET", url);
-    Http.send();
-    Http.onreadystatechange = (e) => {
-        console.log(Http.responseText)
-    }
-})
-
 document.getElementById('bookmark').addEventListener('click', (e) => {
-    // console.log(document.getElementById('tags').value)
     chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT },
         function (tabs) {
             let Http = new XMLHttpRequest();
@@ -48,14 +36,11 @@ document.getElementById('reviews_button').addEventListener('click', (e) => {
             console.log(url)
             Http.open("GET", url);
             Http.send();
-            // document.getElementById('reviews_button').innerHTML = "Posted"
             document.getElementById('post_div').innerHTML = '<div class="alert alert-success" role="alert"> Review Posted Successfully  </div >'
             console.log('chlo review button ke ander')
             Http.onreadystatechange = (e) => {
-                // if (Http.readyState == 4 && Http.status == 200){
-                // document.getElementById('reviews_button').innerHTML = '<div class="alert alert - success" role="alert"> Review Posted Successfully  </div >'
-                console.log(Http.responseText)
-                // }
+                if (Http.readyState == 4 && Http.status == 200)
+                    console.log(Http.responseText)
             }
         }
     );
@@ -63,26 +48,14 @@ document.getElementById('reviews_button').addEventListener('click', (e) => {
 
 
 document.getElementById('disp').addEventListener('click', (e) => {
-    console.log('hii inside')
-    // console.log(document.getElementById('reviews_input').value)
-    // console.log('jfjjn')
     chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT },
         function (tabs) {
             let Http = new XMLHttpRequest();
-            // const url = 'http://localhost:3000/test'
-            // console.log('fnjnf')
-            // const userAction = async () => {
-            //     const response = await fetch('http://localhost:9000/test');
-            //     const myJson = await response.json();
-            //     console.log("in script") 
-            //     console.log(myJson)
-            // }
             const url = 'http://localhost:3000/displayreviews?url=' + tabs[0].url;
             console.log(url)
             Http.open("GET", url);
             Http.send();
             Http.onreadystatechange = function () {
-                // console.log(Http)
                 if (Http.readyState == 4 && Http.status == 200) {
                     console.log(Http.responseText);
                     var respt = JSON.parse(Http.responseText);
@@ -113,6 +86,7 @@ document.getElementById('get_rating').addEventListener('click', (e) => {
 
 var star;
 document.getElementById('new-rate').addEventListener('click', (e) => {
+    console.log("hi");
     if ($("input[type='radio']").is(':checked')) {
         var star = $("input[type='radio']:checked").val();
         alert(star);
