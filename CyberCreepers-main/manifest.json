@@ -1,0 +1,19 @@
+{
+        "manifest_version": 2, 
+        "version": "1.0",
+        "name": "Secure Whatsapp",
+        "description": "Learning how to make a chrome extension!",
+        "icons": {
+        "16": "images/whatsapp.png",
+        "48": "images/whatsapp.png",
+        "128": "images/whatsapp.png"
+        },
+        "browser_action": {
+        "default_icon": "images/whatsapp.png",
+        "default_popup": "popup.html"
+        },
+        "permissions": [
+        "activeTab",
+        "tabs"
+        ]
+}
