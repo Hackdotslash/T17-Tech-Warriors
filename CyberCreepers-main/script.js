@@ -183,24 +183,27 @@ document.getElementById('get_rating').addEventListener('click', (e) => {
         file: 'ratingdisplay.js'
     });
 })
+
 var star;
-document.getElementById('rate').addEventListener('click', (e) => {
-    chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT },
-        function (tabs) {
-            let Http = new XMLHttpRequest();
-            if ($("input[type='radio'].form-check-input").is(':checked')) {
-                var star = $("input[type='radio'].form-check-input:checked").val();
-                alert(star);
+document.getElementById('new-rate').addEventListener('click', (e) => {
+    if ($("input[type='radio']").is(':checked')) {
+        var star = $("input[type='radio']:checked").val();
+        alert(star);
+    }
+    if (star) {
+        chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT },
+            function (tabs) {
+                let Http = new XMLHttpRequest();
+                const url = 'http://localhost:3000/rate?star=' + star + '&url=' + tabs[0].url;
+                console.log(url)
+                Http.open("GET", url);
+                Http.send();
+                Http.onreadystatechange = (e) => {
+                    console.log(Http.responseText)
+                }
             }
-            const url = 'http://localhost:3000/rate?star=' + star + '&url=' + tabs[0].url;
-            console.log(url)
-            Http.open("GET", url);
-            Http.send();
-            Http.onreadystatechange = (e) => {
-                console.log(Http.responseText)
-            }
-        }
-    );
+        );
+    }
 })
 
 const togglehandler = () => {
