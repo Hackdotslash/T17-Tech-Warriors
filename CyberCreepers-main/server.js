@@ -148,6 +148,7 @@ app.get('/getRating', (req, res) => {
     var ratings = []
     axios.get('https://boogle-e8231-default-rtdb.firebaseio.com/ratings.json')
         .then((response) => {
+            console.log(response.data)
             res.send(response.data)
         }, (error) => {
             console.log(error);
