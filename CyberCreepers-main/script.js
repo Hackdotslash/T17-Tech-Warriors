@@ -11,7 +11,16 @@ document.getElementById('whatsapp').addEventListener('click', (e) => {
     );
 })
 
-
+document.getElementById('report').addEventListener('click', (e) => {
+    let Http = new XMLHttpRequest();
+    const url = 'http://localhost:9000/sms'
+    console.log(url)
+    Http.open("GET", url);
+    Http.send();
+    Http.onreadystatechange = (e) => {
+        console.log(Http.responseText)
+    }
+})
 
 document.getElementById('bookmark').addEventListener('click', (e) => {
     // console.log(document.getElementById('tags').value)
