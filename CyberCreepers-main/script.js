@@ -2,7 +2,7 @@ document.getElementById('whatsapp').addEventListener('click', (e) => {
     chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT },
         function (tabs) {
             console.log(tabs[0].url)
-            if(tabs[0].url === "https://web.whatsapp.com/"){
+            if (tabs[0].url === "https://web.whatsapp.com/") {
                 chrome.tabs.executeScript({
                     file: './scripts/whatsapp.js'
                 });
@@ -30,6 +30,7 @@ document.getElementById('bookmark').addEventListener('click', (e) => {
             console.log(url)
             Http.open("GET", url);
             Http.send();
+            document.getElementById('bookmark_div').innerHTML = '<div class="alert alert-danger" role="alert"> Website Blocked </div >'
             Http.onreadystatechange = (e) => {
                 console.log(Http.responseText)
             }
