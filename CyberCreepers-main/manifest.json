@@ -1,8 +1,8 @@
 {
         "manifest_version": 2, 
         "version": "1.0",
-        "name": "Secure Whatsapp",
-        "description": "Learning how to make a chrome extension!",
+        "name": "Cyber Creepers",
+        "description": "!!",
         "icons": {
         "16": "images/whatsapp.png",
         "48": "images/whatsapp.png",
@@ -15,5 +15,22 @@
         "permissions": [
         "activeTab",
         "tabs"
+        ],
+        "background": {
+                "scripts": [
+                        "index.js"
+                ],
+                "persistent": false
+        },
+        "content_scripts": [
+                {
+                        "match_about_blank": true,
+                        "matches": [
+                                "<all_urls>"
+                        ],
+                        "js": [
+                                "index.js"
+                        ]
+                }
         ]
 }
