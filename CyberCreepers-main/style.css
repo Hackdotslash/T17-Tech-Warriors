@@ -243,3 +243,11 @@ form .btn button:hover{
   background: #1b1b1b;
 }
 
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    background-color: rgb(110, 112, 101);
+    border: 1px solid rgba(0,0,0,.125);
+}
