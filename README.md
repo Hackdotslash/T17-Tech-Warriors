@@ -39,3 +39,7 @@ node server.js
 ```
 7. Once server is set up, go to chrome extension manager and toogle developer options, load unpack this folder into it. 
 8. You will see the extension all set up for use.
+
+# Demo:-
+Refer https://youtu.be/csYUYKxnX20 for a better insight.
+
