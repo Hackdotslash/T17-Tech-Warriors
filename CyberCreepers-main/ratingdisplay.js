@@ -58,10 +58,10 @@ ff.forEach(node=>{
     console.log("end")
   var staravg;
     if(cnt===0){
-      staravg="Not Rated Yet..Be the first"
+      staravg="UnRated Yet..Be the first"
     }
     else{
-      staravg=(sum/cnt).toString();
+      staravg = (sum / cnt).toFixed(2).toString();
     }
     // let Http = new XMLHttpRequest();
     // const urll = 'http://localhost:3000/getRating?urll=' + node.firstElementChild.getAttribute('href')
