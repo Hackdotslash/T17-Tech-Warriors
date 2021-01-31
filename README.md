@@ -19,15 +19,19 @@ Background checks are always enabled while surfing, ie. pop-ups , advertisements
 # Our only Motive:- "See something wrong, do something right" 
 
 ## Build our Project:
-1. Clone the project. ``` https://github.com/Hackdotslash/T17-Tech-Warriors.git ```
-2. Install required dependencies for python3 flask server (``` pip install x ```), where x is any dependency that is required.
-3. Install required dependencies for node server (``` npm install x ```), where x is any dependency that is required.
+1. Fork and Clone the project. 
+``` git clone https://github.com/Hackdotslash/T17-Tech-Warriors.git ```
+2. Install required dependencies for python3 flask server.
+(``` pip install x ```), where x is any dependency that is required.
+3. Install required dependencies for node server 
+(``` npm install x ```), where x is any dependency that is required.
 4. Open two terminals.
 5. Run python server -> 
 ```
 cd python-server
 python ./api.py
 ```
-6. Run node server using ``` node server.js ```
+6. Run node server using 
+``` node server.js ```
 7. Once server is set up, go to chrome extension manager and toogle developer options, load unpack this folder into it. 
 8. You will see the extension all set up for use.
