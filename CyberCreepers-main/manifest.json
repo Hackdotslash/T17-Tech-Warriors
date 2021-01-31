@@ -4,12 +4,12 @@
         "name": "Cyber Creepers",
         "description": "!!",
         "icons": {
-        "16": "images/whatsapp.png",
-        "48": "images/whatsapp.png",
-        "128": "images/whatsapp.png"
+        "16": "images/logo.png",
+        "48": "images/logo.png",
+        "128": "images/logo.png"
         },
         "browser_action": {
-        "default_icon": "images/whatsapp.png",
+        "default_icon": "images/logo.png",
         "default_popup": "popup.html"
         },
         "permissions": [
