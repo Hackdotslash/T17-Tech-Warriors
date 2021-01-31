@@ -80,19 +80,19 @@ document.getElementById('disp').addEventListener('click', (e) => {
                 if (Http.readyState == 4 && Http.status == 200) {
                     console.log(Http.responseText);
                     var respt = JSON.parse(Http.responseText);
-                    var st = '<ul>'
+                    var st = '<ul class="list-group">'
                     console.log(respt)
                     if (respt.length) {
                         for (var x in respt) {
-                            st += '<li align="left">' + respt[x] + '</li>'
+                            st += '<li class="list-group-item" align="left">' + respt[x] + '</li>'
                         }
                     }
                     else {
-                        st += '<li align="left">' + 'Be the 1st one to review..' + '</li>'
+                        st += '<li class="list-group-item">' + 'Be the 1st one to review..' + '</li>'
                     }
                     st += '</ul>'
                     console.log(st)
-                    document.getElementById('disp').innerHTML = st;
+                    document.getElementById('fetch_div').innerHTML = st;
                 }
             }
         }
@@ -110,7 +110,7 @@ document.getElementById('new-rate').addEventListener('click', (e) => {
     console.log("hi");
     if ($("input[type='radio']").is(':checked')) {
         var star = $("input[type='radio']:checked").val();
-        alert(star);
+        // alert(star);
     }
     if (star) {
         chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT },
